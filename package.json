@@ -1,7 +1,10 @@
 {
   "name": "compact-crypto",
   "version": "0.1.0",
+  "description": "A compact data viewer for cryptocurrency trends.",
   "private": true,
+  "license": "UNLICENSED",
+  "homepage": ".",
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "@testing-library/jest-dom": "^4.2.4",
