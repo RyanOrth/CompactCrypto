@@ -10,20 +10,26 @@ export class CandlestickChart extends Component {
         chart: {
           id: "basic-bar"
         },
+        // This section lets you define the properties for the x-axis. Many more at https://apexcharts.com/docs/options/xaxis/
         xaxis: {
           labels: {
             showLabels: true,
-            datetimeFormatter: {
-              year: 'yyyy',
-              month: 'MMM \'yy',
-              day: 'dd MMM',
-              hour: 'HH:mm'
-            },
-            format: 'HH:mm'
+            format: 'HH:mm',
+            style: {
+              colors: 'white'
+            }
           }
-  }
+        },
+        // These are the y-axis options. They are set automatically so not much to change here
+        yaxis: {
+          labels: {
+            style: {
+              colors: 'white'
+            }
+          }
+        }
       },
-      // this is where the data goes that is displayed, format is [Timestampo]
+      // This is where the data goes that is displayed. Format for x is 'HH:mm', and format for y is [Timestamp, Open, High, Low, Close]
       series: [{
         data: [{
           x: '12:00',
@@ -40,21 +46,16 @@ export class CandlestickChart extends Component {
       }]
     }
   }
-
+  // This render function is what actually creates the chart.
   render() {
     return (
-      <div className="app">
-        <div className="row">
-          <div className="mixed-chart">
             <Chart
               options={this.state.options}
               series={this.state.series}
               type="candlestick"
-              width="500"
+              width="750"
+              height="500"
             />
-          </div>
-        </div>
-      </div>
     );
   }
 }
