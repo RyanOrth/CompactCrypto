@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import { CandlestickChart } from './features/graph/CandlestickChart';
 import Navbar from './features/navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CompactView from './pages';
@@ -26,9 +25,6 @@ function App() {
           <Route path='/account' component={Account} />
         </Switch>
       </Router>
-      <div>
-        <CandlestickChart/>
-      </div>
     </div>
   );
 }

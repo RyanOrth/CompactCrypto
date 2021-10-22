@@ -1,4 +1,5 @@
 import React from 'react';
+import { CandlestickChart } from '../features/graph/CandlestickChart';
 
 const GraphView = () => {
   return (
@@ -10,7 +11,8 @@ const GraphView = () => {
         height: '100vh'
       }}
       >
-        <h1>Graph View</h1>
+      <h1>Graph View</h1>
+      <CandlestickChart/>
       </div>
   );
 };
