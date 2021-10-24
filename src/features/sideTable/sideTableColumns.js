@@ -1,0 +1,11 @@
+export const COLUMNS = [
+  {
+    Header: 'Symbol',
+    accessor: 'SYMBOL',
+  },
+  {
+    Header: 'Value',
+    accessor: 'DATA.2021-10-23.close'
+  },
+
+]
