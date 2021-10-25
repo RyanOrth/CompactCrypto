@@ -1,18 +1,25 @@
 import React from 'react';
+import { Redirect } from 'react-router';
+import Page from 'page.js';
+import { ACCOUNT_VIEW } from '../constants/action-types';
+import page from './page.js';
 
-const Account = () => {
-  return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'Right',
-        alignItems: 'Right',
-        height: '100vh'
+const Account = ({appState}) => {
+  return appState !== ACCOUNT_VIEW ? (
+    <Redirect
+      push
+      to={{
+        pathname: appState.pathname,
+        state: {
+
+        }
       }}
-      >
-        <h1>Account</h1>
-      </div>
+    />
+  ) : (
+    <Page
+      appState={appState}
+    />
   );
 };
 
-export default Account;
+export default page(Account);

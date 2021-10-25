@@ -2,10 +2,11 @@ import React from 'react';
 import './App.css';
 import Navbar from './features/navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+
 import CompactView from './pages';
 import DataView from './pages/data-view';
 import GraphView from './pages/graph-view';
-import Account from './pages/account';
+import OldAccount from './pages/old-account';
 
 function App() {
   return (
@@ -19,10 +20,10 @@ function App() {
       <Router>
         <Navbar />
         <Switch>
-          <Route path='/' exact component={CompactView} />
+          <Route exact path='/'  component={CompactView} />
           <Route path='/data-view' component={DataView} />
           <Route path='/graph-view' component={GraphView} />
-          <Route path='/account' component={Account} />
+          <Route path='/old-account' component={OldAccount} />
         </Switch>
       </Router>
     </div>

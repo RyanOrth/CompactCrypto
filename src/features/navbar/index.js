@@ -1,49 +1,53 @@
 import { produceWithPatches } from '@reduxjs/toolkit/node_modules/immer';
 import React from 'react';
 import {
+  COMPACT_VIEW,
+  DATA_VIEW,
+  GRAPH_VIEW,
+  ACCOUNT_VIEW
+} from '../../constants/action-types';
+
+import { IoPersonSharp } from 'react-icons/io5';
+
+
+import {
   Nav,
   NavLink,
   Bars,
   NavMenu,
   NavBtn,
   NavBtnLink,
+  NavBtnLinkAccount,
 } from './NavbarElements';
 
 const Navbar = () => {
   return (
     <>
       <Nav>
-        <Bars/>
-
         <NavMenu>
-          <div class='dropdown'>
-            <button class='dropbtn'>View</button>
-            <div class='dropdown-content'>
-              <NavLink to='/' activeStyle>
+          <div className='dropdown'>
+            <button className='dropbtn'>View</button>
+            <div className='dropdown-content'>
+              <NavLink to='/'>
                 Compact View
               </NavLink>
-              <NavLink to='/data-view' activeStyle>
+              <NavLink to='/data-view'>
                 Data View
               </NavLink>
-              <NavLink to='/graph-view' activeStyle>
+              <NavLink to='/graph-view'>
                 Graph View
               </NavLink>
-              <NavLink to='/account' activeStyle>
+              <NavLink to='/old-account'>
                 Account
               </NavLink>
             </div>
           </div>
-          
-          
-          
-          
+
           {/* Second Nav */}
           {/* <NavBtnLink to='/sign-in'>Sign In</NavBtnLink> */}
         </NavMenu>
 
-        <NavBtn>
-          <NavBtnLink to='/signin'> Sign In</NavBtnLink>
-        </NavBtn>
+        <NavBtnLinkAccount to='/old-account'> <IoPersonSharp size={50} /> </NavBtnLinkAccount>
       </Nav>
     </>
   );

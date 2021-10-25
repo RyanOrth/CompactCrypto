@@ -1,0 +1,12 @@
+.dropdown {
+  color: #585858;
+  font-size: calc(10px + 2vmin);
+  border: none;
+}
+
+.dropdown-content {
+  background-color: #585858;
+  color: #585858;
+  font-size: calc(10px + 2vmin);
+  border: none;
+}

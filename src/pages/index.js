@@ -1,5 +1,6 @@
 import React from 'react';
 import { CandlestickChart } from '../features/graph/CandlestickChart';
+import { IoCaretUpSharp, IoCaretDownSharp } from 'react-icons/io5';
 
 const CompactView = () => {
   return (
@@ -32,14 +33,14 @@ const CompactView = () => {
           }}>{/* This is the element for react*/}
             <td>BTC</td>
             <td>$10</td>
-            <td>up5%</td>
+            <td><IoCaretUpSharp size={20} color={'lime'}/>5%</td>
           </tr>{/*end element*/}
           <tr style={{
             border: '1px solid black',
           }}>
             <td>DOGE</td>
             <td>$5</td>
-            <td>down3%</td>
+            <td><IoCaretDownSharp size={20} color={'red'}/>3%</td>
           </tr>
           <tr style={{
             border: '1px solid black',

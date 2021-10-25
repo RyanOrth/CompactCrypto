@@ -46,6 +46,8 @@
   color: white;
   font-size: calc(10px + 2vmin);
   border: none;
+  min-width: 160px;
+  padding: 10px;
 }
 
 .dropdown {
@@ -74,3 +76,9 @@
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #a1a1a1;}
+
+.btn span {
+  float: left;
+  width: 10px;
+  height: 40px;
+}
