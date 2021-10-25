@@ -1,7 +1,8 @@
 import { useMemo } from "react";
-import { IoStar, IoStarOutline } from 'react-icons/io5';
+import { TiArrowSortedDown, TiArrowSortedUp, TiArrowUnsorted } from 'react-icons/ti';
+import { IoStar, IoStarOutline } from 'react-icons/io5'
 import { useDispatch, useSelector } from "react-redux";
-import { useTable } from "react-table";
+import { useTable, useSortBy } from "react-table";
 import jsonData from "../../data/data.json";
 import { COLUMNS } from "./tableViewTableColumns";
 import { getFavoriteList, setFavoriteList } from "./tableViewTableSlice";
@@ -37,7 +38,7 @@ export const TableViewTable = () => {
   const tableInstance = useTable({
     columns,
     data
-  });
+  }, useSortBy);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
 
@@ -49,8 +50,19 @@ export const TableViewTable = () => {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {
                 headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>
+                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render('Header')}
+                    {
+                      (column.Header !== 'Favorite') ?
+                        <span style={{ float: 'right' }}>
+                          {
+                            column.isSorted ? (column.isSortedDesc ?
+                              <TiArrowSortedDown size={20} color={'black'} /> :
+                              <TiArrowSortedUp size={20} color={'black'} />
+                            ) : <TiArrowUnsorted size={20} color={'black'} />
+                          }
+                        </span> : ''
+                    }
                   </th>
                 ))
               }

@@ -3,16 +3,14 @@ import Chart from "react-apexcharts";
 import jsonData from '../../data/data.json';
 import { getSelectedToken } from '../sideTable/sideTableSlice';
 import { useSelector } from "react-redux";
-
+import './candleStick.css'
 export const CandlestickChart = (props) => {
   const data = [];
-  const token = useSelector(getSelectedToken);
-
+  const compact_token = useSelector(getSelectedToken);
+  const token = (props.currentPage === 'COMPACT_VIEW') ? compact_token : 'DOGE';
   const objOfDays = jsonData.filter(x => x.SYMBOL === token).pop()['DATA'];
-  console.log(objOfDays);
   for (let d = new Date('2021-10-10'); d <= new Date('2021-10-23'); d.setDate(d.getDate() + 1)) {
     const dayData = objOfDays[d.toISOString().substr(0, 10)];
-    console.log(dayData);
     data.push({
       x: d.toISOString().substr(0, 10),
       y: [dayData['open'], dayData['high'], dayData['low'], dayData['close']],
@@ -44,7 +42,7 @@ export const CandlestickChart = (props) => {
             colors: 'white'
           }
         }
-      }
+      },
     },
     // This is where the data goes that is displayed. Format for x is 'HH:mm', and format for y is [Open, High, Low, Close]
     series: [{

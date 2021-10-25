@@ -27,7 +27,7 @@ const CompactView = () => {
         <div style={{
           float: 'right',
         }}>
-          <CandlestickChart width={500} height={400} />
+          <CandlestickChart width={500} height={400} currentPage={'COMPACT_VIEW'} />
         </div>
       </div>
     </div>
