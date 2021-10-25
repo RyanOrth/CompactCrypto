@@ -10,5 +10,5 @@ export const COLUMNS = [
   {
     Header: 'Gain/Loss',
     accessor: 'DATA.2021-10-23.gain_loss',
-  }
+  },
 ]
