@@ -1,9 +1,35 @@
-import { useMemo } from "react"
-import { useTable } from "react-table"
-import { COLUMNS } from "./tableViewTableColumns"
-import jsonData from "../../data/data.json"
+import { useMemo } from "react";
+import { IoStar, IoStarOutline } from 'react-icons/io5';
+import { useDispatch, useSelector } from "react-redux";
+import { useTable } from "react-table";
+import jsonData from "../../data/data.json";
+import { COLUMNS } from "./tableViewTableColumns";
+import { getFavoriteList, setFavoriteList } from "./tableViewTableSlice";
 
 export const TableViewTable = () => {
+
+  const favoriteList = useSelector(getFavoriteList);
+  const dispatch = useDispatch();
+
+  const updateFavoriteList = (favoriteList) =>
+    dispatch(
+      setFavoriteList({
+        favoriteList,
+      })
+    )
+
+  // const addFavorite = (favorite) =>
+  //   dispatch(
+  //     pushFavorite({
+  //       favorite,
+  //     })
+  //   );
+  // const deleteFavorite = (favorite) =>
+  //   dispatch(
+  //     popFavorite({
+  //       favorite,
+  //     })
+  //   );
 
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => jsonData, []);
@@ -41,7 +67,11 @@ export const TableViewTable = () => {
                 {
                   row.cells.map((cell) => {// Here is changing cell color based on value
                     return <td {...cell.getCellProps()}>
-                      {cell.render('Cell')}
+                      {(cell.column.Header !== 'Favorite') ?
+                        cell.render('Cell') :
+                        (favoriteList.includes(cell.row.values['SYMBOL'])) ?
+                          <IoStar size={30} color={'red'} onClick={() => updateFavoriteList([...favoriteList].filter(n => n !== cell.row.values['SYMBOL']))} /> :
+                          <IoStarOutline size={30} color={'black'} onClick={() => updateFavoriteList([...favoriteList, cell.row.values['SYMBOL']])} />}
                     </td>
                   })
                 }

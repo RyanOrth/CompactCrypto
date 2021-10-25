@@ -1,5 +1,8 @@
 export const COLUMNS = [
   {
+    Header: 'Favorite',
+  },
+  {
     Header: 'Symbol',
     accessor: 'SYMBOL',
   },
