@@ -79,6 +79,6 @@ export const SideTable = () => {
           })
         }
       </tbody>
-    </table >
+    </table>
   );
 }
