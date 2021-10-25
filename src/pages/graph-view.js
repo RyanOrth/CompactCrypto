@@ -1,5 +1,7 @@
 import React from 'react';
 import { CandlestickChart } from '../features/graph/CandlestickChart';
+import { GraphViewTable } from '../features/graphViewTable/GraphViewTable';
+import './screenCSS/graphView.css';
 
 const GraphView = () => {
   return (
@@ -12,7 +14,14 @@ const GraphView = () => {
       }}
       >
       <h1>Graph View</h1>
-      <CandlestickChart/>
+      <div id={'tbbl'} style={{ overflow: 'hidden', float: 'left', height: '274px', border: '1px solid #ddd' }}>
+          <GraphViewTable />
+        </div>
+        <div style={{
+          float: 'right',
+        }}>
+          <CandlestickChart />
+        </div>
       </div>
   );
 };
