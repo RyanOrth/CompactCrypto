@@ -1,44 +1,46 @@
-import React, { useMemo } from "react";
+import { useMemo } from "react";
+import { IoStar, IoStarOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from "react-redux";
 import { useTable } from "react-table";
-import jsonData from '../../data/data.json';
-import { COLUMNS } from "./sideTableColumns";
-import { getSelectedRow, getSelectedToken, setSelectedRow, setSelectedToken } from "./sideTableSlice";
-import './sideTableStyle.css';
+import jsonData from "../../data/data.json";
+import { COLUMNS } from "./tableViewTableColumns";
+import { getFavoriteList, setFavoriteList } from "./tableViewTableSlice";
 
-export const SideTable = () => {
-  // current row/currency to display on graph
-  const selectedRow = useSelector(getSelectedRow);
-  const selectedToken = useSelector(getSelectedToken);
+export const TableViewTable = () => {
+
+  const favoriteList = useSelector(getFavoriteList);
   const dispatch = useDispatch();
 
-  const selectRow = (selectedRow) =>
+  const updateFavoriteList = (favoriteList) =>
     dispatch(
-      setSelectedRow({
-        selectedRow,
+      setFavoriteList({
+        favoriteList,
       })
-    );
-  const selectToken = (selectedToken) =>
-    dispatch(
-      setSelectedToken({
-        selectedToken,
-      })
-    );
-  const selection = (rowId, token) => {
-    selectRow(rowId);
-    selectToken(token);
-  }
-  // memoizing columns and data to prevent react from reloading json every frame
+    )
+
+  // const addFavorite = (favorite) =>
+  //   dispatch(
+  //     pushFavorite({
+  //       favorite,
+  //     })
+  //   );
+  // const deleteFavorite = (favorite) =>
+  //   dispatch(
+  //     popFavorite({
+  //       favorite,
+  //     })
+  //   );
+
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => jsonData, []);
-  // Stuff for react-table:setting columns and data
+
   const tableInstance = useTable({
     columns,
     data
   });
-  // Getting properties from react-table to be able to successfully display table
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
-  // returning table
+
   return (
     <table {...getTableProps()}>
       <thead>
@@ -61,16 +63,17 @@ export const SideTable = () => {
           rows.map(row => {
             prepareRow(row)
             return (// Here change color if clicked and runs onclick
-              <tr {...row.getRowProps()} onClick={() => selection(row.id, row.values['SYMBOL'])} style={{
-                background: row.id === selectedRow ? '#00afec' : 'white',
-                color: row.id === selectedRow ? 'white' : 'black'
-              }}>
+              <tr {...row.getRowProps()}>
                 {
                   row.cells.map((cell) => {// Here is changing cell color based on value
                     return <td {...cell.getCellProps()} style={{
                       background: cell.column.Header === 'Gain/Loss' ? cell.value > 0 ? `rgb(50, 125, 0)` : `rgb(150,40,40)` : null,
                     }}>
-                      {cell.render('Cell')}
+                      {(cell.column.Header !== 'Favorite') ?
+                        cell.render('Cell') :
+                        (favoriteList.includes(cell.row.values['SYMBOL'])) ?
+                          <IoStar size={30} color={'red'} onClick={() => updateFavoriteList([...favoriteList].filter(n => n !== cell.row.values['SYMBOL']))} /> :
+                          <IoStarOutline size={30} color={'black'} onClick={() => updateFavoriteList([...favoriteList, cell.row.values['SYMBOL']])} />}
                     </td>
                   })
                 }
@@ -80,5 +83,5 @@ export const SideTable = () => {
         }
       </tbody>
     </table>
-  );
+  )
 }
