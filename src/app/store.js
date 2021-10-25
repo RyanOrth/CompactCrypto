@@ -11,4 +11,6 @@ export const store = configureStore({
     [tableViewTableSlice.name]: tableViewTableSlice.reducer,
     dropDown: dropDownReducer,
   },
-});
+}, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+
+);

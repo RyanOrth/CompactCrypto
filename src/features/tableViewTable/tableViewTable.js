@@ -66,7 +66,9 @@ export const TableViewTable = () => {
               <tr {...row.getRowProps()}>
                 {
                   row.cells.map((cell) => {// Here is changing cell color based on value
-                    return <td {...cell.getCellProps()}>
+                    return <td {...cell.getCellProps()} style={{
+                      background: cell.column.Header === 'Gain/Loss' ? cell.value > 0 ? `rgb(50, 125, 0)` : `rgb(150,40,40)` : null,
+                    }}>
                       {(cell.column.Header !== 'Favorite') ?
                         cell.render('Cell') :
                         (favoriteList.includes(cell.row.values['SYMBOL'])) ?
