@@ -1,10 +1,10 @@
 export const COLUMNS = [
 {
     Header: 'Cryptocurrency',
-    accessor: 'CRYPTO',
+    accessor: 'col1',
   },
   {
     Header: '',
-    accessor: 'REMOVE_BUTTON'
+    accessor: 'col2'
   }
 ]

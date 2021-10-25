@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
 import { useTable } from "react-table";
-import jsonData from '../../data/data.json';
 import { COLUMNS } from "./graphViewTableColumns";
-import './graphViewTableStyle.css'
+import './graphViewTableStyle.css';
+import { IoCloseCircleOutline} from 'react-icons/io5';
+<IoCloseCircleOutline size={20} color={'white'}/>
 
 export const GraphViewTable = () => {
    // current row/currency to display on graph
@@ -12,10 +13,16 @@ export const GraphViewTable = () => {
   for (const object of json) {
     symbols.add(object.SYMBOL);
   }
-  console.log(symbols);
+  console.log('symbols: ', symbols);
+  let rowData = useMemo(() => [], []);
+  for (const symbol of symbols) {
+    const row = { col1: symbol, col2: 'test' };
+    rowData.push(row);
+  }
+  console.log('rowData: ', rowData);
   // memoizing columns and data to prevent react from reloading json every frame
   const columns = useMemo(() => COLUMNS, []);
-  const data = useMemo(() => jsonData, []);
+  const data = useMemo(() => rowData, [rowData]);
   // Stuff for react-table:setting columns and data
   const tableInstance = useTable({
     columns,
