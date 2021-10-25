@@ -50,14 +50,18 @@ export const SideTable = () => {
         {
           rows.map(row => {
             prepareRow(row)
-            return (
+            return (// Here change color if clicked and runs onclick
               <tr {...row.getRowProps()} onClick={() => selectRow(row.id)} style={{
                 background: row.id === selectedRow ? '#00afec' : 'white',
                 color: row.id === selectedRow ? 'white' : 'black'
               }}>
                 {
-                  row.cells.map((cell) => {
-                    return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                  row.cells.map((cell) => {// Here is changing cell color based on value
+                    return <td {...cell.getCellProps()} style={{
+                      background: cell.column.Header === 'Gain/Loss' ? cell.value > 0 ? `rgb(50, 125, 0)` : `rgb(190,40,40)` : null,
+                    }}>
+                      {cell.render('Cell')}
+                    </td>
                   })
                 }
               </tr>
@@ -68,22 +72,3 @@ export const SideTable = () => {
     </table>
   );
 }
-/*
-getTrProps={(state, rowInfo) => {
-            if (rowInfo && rowInfo.row) {
-              return {
-                onClick: (e) => {
-                  this.setState({
-                    selectedRow: rowInfo.index
-                  })
-                },
-                style: {
-                  background: rowInfo.index === this.state.selectedRow ? '#00afec' : 'white',
-                  color: rowInfo.index === this.state.selectedRow ? 'white' : 'black'
-                }
-              }
-            } else {
-              return {}
-            }
-          }}
-*/
