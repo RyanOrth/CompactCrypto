@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTable } from "react-table";
 import jsonData from '../../data/data.json';
 import { COLUMNS } from "./sideTableColumns";
-import { getSelectedRow, setSelectedRow } from "./sideTableSlice";
-import './sideTableStyle.css'
+import { getSelectedRow, getSelectedToken, setSelectedRow, setSelectedToken } from "./sideTableSlice";
+import './sideTableStyle.css';
 
 export const SideTable = () => {
   // current row/currency to display on graph
   const selectedRow = useSelector(getSelectedRow);
+  const selectedToken = useSelector(getSelectedToken);
   const dispatch = useDispatch();
 
   const selectRow = (selectedRow) =>
@@ -17,7 +18,16 @@ export const SideTable = () => {
         selectedRow,
       })
     );
-
+  const selectToken = (selectedToken) =>
+    dispatch(
+      setSelectedToken({
+        selectedToken,
+      })
+    );
+  const selection = (rowId, token) => {
+    selectRow(rowId);
+    selectToken(token);
+  }
   // memoizing columns and data to prevent react from reloading json every frame
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => jsonData, []);
@@ -51,7 +61,7 @@ export const SideTable = () => {
           rows.map(row => {
             prepareRow(row)
             return (// Here change color if clicked and runs onclick
-              <tr {...row.getRowProps()} onClick={() => selectRow(row.id)} style={{
+              <tr {...row.getRowProps()} onClick={() => selection(row.id, row.values['SYMBOL'])} style={{
                 background: row.id === selectedRow ? '#00afec' : 'white',
                 color: row.id === selectedRow ? 'white' : 'black'
               }}>
@@ -69,6 +79,6 @@ export const SideTable = () => {
           })
         }
       </tbody>
-    </table>
+    </table >
   );
 }
