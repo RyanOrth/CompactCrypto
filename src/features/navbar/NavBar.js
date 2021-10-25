@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { IoPersonSharp } from 'react-icons/io5';
 
 import {
   Nav,
@@ -8,6 +9,7 @@ import {
   NavMenu,
   NavBtn,
   NavBtnLink,
+  NavBtnLinkAccount,
 } from './NavbarElements';
 
 import {
@@ -34,35 +36,28 @@ export function NavBar(props) {
   var displaySearchBar = useSelector(selectDisplaySearchBar);
   const dispatch = useDispatch();
 
-  function switchPage(selectedPage) {
-    console.log('I have been clicked!!!')
-    dispatch(updateCurrentPage(selectedPage));
-    switch (selectedPage) {
-      case COMPACT_VIEW:
-        (<Redirect to='/'></Redirect>)
-        break;
-      case DATA_VIEW:
-        (<Redirect to='/data-view'></Redirect>)
-        break;
-      case GRAPH_VIEW:
-        (<Redirect to='/graph-view'></Redirect>)
-        break;
-      case ACCOUNT_VIEW:
-        (<Redirect to='/account'></Redirect>)
-        break;
-      default:
-        break;
-    }
-  }
-
   return (
     <Nav>
       <NavMenu>
-          <button onClick={switchPage(COMPACT_VIEW)}>{COMPACT_VIEW}</button>
-          <button onClick={switchPage(DATA_VIEW)}>{DATA_VIEW}</button>
-          <button onClick={switchPage(GRAPH_VIEW)}>{GRAPH_VIEW}</button>
-          <button onClick={switchPage(ACCOUNT_VIEW)}>{ACCOUNT_VIEW}</button>
+        <div className={styles.dropdown}>
+          <button className={styles.dropbtn}>{currentPage}</button>
+          <div className={styles['dropdown-content']}>
+            <NavLink to='/' activeStyle>
+              Compact View
+            </NavLink>
+            <NavLink to='/data-view' activeStyle>
+              Data View
+            </NavLink>
+            <NavLink to='/graph-view' activeStyle>
+              Graph View
+            </NavLink>
+            <NavLink to='/account' activeStyle>
+              Account
+            </NavLink>
+          </div>
+        </div>
       </NavMenu>
+      <NavBtnLinkAccount to='/account'> <IoPersonSharp size={50} /> </NavBtnLinkAccount>
     </Nav>
   );
 }
