@@ -12,3 +12,4 @@ export const COLUMNS = [
     accessor: 'DATA.2021-10-23.gain_loss',
   },
 ]
+

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Navbar from './features/navbar';
+import Navbar from './features/navBar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import CompactView from './pages';
 import DataView from './pages/data-view';
@@ -17,7 +17,7 @@ function App() {
     // </div>
     <div className="App">
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route path='/' exact component={CompactView} />
           <Route path='/data-view' component={DataView} />

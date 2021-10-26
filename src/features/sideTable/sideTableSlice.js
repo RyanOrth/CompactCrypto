@@ -4,7 +4,7 @@ const sideTableSlice = createSlice({
   name: "sideTable",
   initialState: {
     selectedRow: -1,
-    selectedToken: 'USDCBUSD'
+    selectedToken: 'USDC'
   },
   reducers: {
     setSelectedRow: (sideTable, action) => {
@@ -13,7 +13,7 @@ const sideTableSlice = createSlice({
     },
     setSelectedToken: (sideTable, action) => {
       const { selectedToken } = action.payload;
-      sideTable.selectedToken = selectedToken + 'BUSD';
+      sideTable.selectedToken = selectedToken;
     }
   },
 });
