@@ -3,23 +3,34 @@ import { useTable } from "react-table";
 import { COLUMNS } from "./graphViewTableColumns";
 import './graphViewTableStyle.css';
 import { IoCloseCircleOutline} from 'react-icons/io5';
+import { useDispatch, useSelector } from "react-redux";
+import { getVisibleRows, updateVisibleRows } from "./graphViewTableSlice";
 <IoCloseCircleOutline size={20} color={'white'}/>
 
 export const GraphViewTable = () => {
+  const visibleRows = useSelector(getVisibleRows);
+  const dispatch = useDispatch();
+
+  const updateRows = (visibleRows) => dispatch(updateVisibleRows(visibleRows));
+
    // current row/currency to display on graph
+   //eslint-disable-next-line
   const fs = require('fs');
   const json = require('../../data/data.json');
   const symbols = new Set();
   for (const object of json) {
     symbols.add(object.SYMBOL);
   }
-  console.log('symbols: ', symbols);
+  const cryptocurrencies = require('cryptocurrencies');
+  const symbolMapping = new Map();
+  for (const symbol of symbols) {
+    symbolMapping.set(symbol, cryptocurrencies[symbol]);
+  }
   let rowData = useMemo(() => [], []);
   for (const symbol of symbols) {
-    const row = { col1: symbol, col2: 'test' };
+    const row = { Crypto: cryptocurrencies[symbol], ICON: '' };
     rowData.push(row);
   }
-  console.log('rowData: ', rowData);
   // memoizing columns and data to prevent react from reloading json every frame
   const columns = useMemo(() => COLUMNS, []);
   const data = useMemo(() => rowData, [rowData]);
@@ -52,12 +63,17 @@ export const GraphViewTable = () => {
         {
           rows.map(row => {
             prepareRow(row)
-            return (// Here change color if clicked and runs onclick
-              <tr {...row.getRowProps()}>
+            return (
+              <tr {...row.getRowProps()} style={{
+                display: [...visibleRows].includes(row.values['Crypto']) ? 'auto' : 'none'
+              }}>
                 {
-                  row.cells.map((cell) => {// Here is changing cell color based on value
+                  row.cells.map((cell) => {
                     return <td {...cell.getCellProps()}>
-                      {cell.render('Cell')}
+                      {(cell.column.Header !== '') ?
+                        cell.render('Cell') :
+                        <IoCloseCircleOutline size={30} color={'white'} onClick={() => updateRows([...visibleRows].filter(n => n !== cell.row.values['Crypto'])) } />
+                      }
                     </td>
                   })
                 }

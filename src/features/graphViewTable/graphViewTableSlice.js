@@ -3,20 +3,22 @@ import { createSlice } from "@reduxjs/toolkit";
 const graphViewTableSlice = createSlice({
   name: "graphViewTable",
   initialState: {
-    visibleRows : [],
+    visibleRows : ['Binance Coin', 'Bitcoin'],
   },
   reducers: {
-    setSelectedRow: (sideTable, action) => {
-      const { selectedRow } = action.payload;
-      sideTable.selectedRow = selectedRow;
+    updateVisibleRows: (graphViewTable, action) => {
+      const { visibleRows } = action.payload;
+      console.log('payload:', action.payload);
+      graphViewTable.visibleRows = visibleRows;
     },
   },
 });
 
 export default graphViewTableSlice;
 
-export const { setSelectedRow } = graphViewTableSlice.actions;
+export const { updateVisibleRows } = graphViewTableSlice.actions;
 
-export function getSelectedRow(state) {
-  return state.sideTable.selectedRow;
+export function getVisibleRows(state) {
+  console.log(state.graphViewTable.visibleRows)
+  return state.graphViewTable.visibleRows;
 }
