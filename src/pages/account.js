@@ -23,7 +23,7 @@ const Account = () => {
 
   return (
     <div>
-      <NavBar currentPage={ACCOUNT_VIEW} displayFilterOptions={false} displaySearchBar={false}/>
+      <NavBar currentPage={ACCOUNT_VIEW} displayFilterOptions={false} displaySearchBar={false} />
       <div
         style={{
           display: 'flex',

@@ -30,6 +30,8 @@ import {
   ACCOUNT_VIEW,
 } from '../../constants/action-types';
 
+import { DropDown } from '../dropDown/DropDown';
+
 export function NavBar(props) {
   var currentPage = useSelector(selectCurrentPage);
   var displayFilterOptions = useSelector(selectDisplayFilterOptions);
@@ -57,6 +59,8 @@ export function NavBar(props) {
           </div>
         </div>
       </NavMenu>
+      {displayFilterOptions ? (<DropDown defaultTitle={'Filters'} items={['Favorites', 'High Risk', 'Safe Bet', 'Popular Picks', 'None']} />) : null}
+
       <NavBtnLinkAccount to='/account'> <IoPersonSharp size={50} /> </NavBtnLinkAccount>
     </Nav>
   );
