@@ -17,7 +17,6 @@ function App() {
     // </div>
     <div className="App">
       <Router>
-        {/* <Navbar /> */}
         <Switch>
           <Route path='/' exact component={CompactView} />
           <Route path='/data-view' component={DataView} />

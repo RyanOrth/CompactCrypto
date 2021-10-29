@@ -35,7 +35,7 @@ const CompactView = () => {
           <h1>Compact View</h1>
         </div>
         <div style={{
-          height: '900px',
+          height: '500px',
         }}>
           <div id={'tbbl'} style={{
             float: 'left',
@@ -54,6 +54,7 @@ const CompactView = () => {
         </div>
       </div>
     </div>
+
   );
 }
 
