@@ -12,7 +12,6 @@ export const GraphViewTable = () => {
   const dispatch = useDispatch();
 
   const updateRows = (visibleRows) => dispatch(updateVisibleRows(visibleRows));
-
    // current row/currency to display on graph
    //eslint-disable-next-line
   const fs = require('fs');
@@ -22,10 +21,7 @@ export const GraphViewTable = () => {
     symbols.add(object.SYMBOL);
   }
   const cryptocurrencies = require('cryptocurrencies');
-  const symbolMapping = new Map();
-  for (const symbol of symbols) {
-    symbolMapping.set(symbol, cryptocurrencies[symbol]);
-  }
+  
   let rowData = useMemo(() => [], []);
   for (const symbol of symbols) {
     const row = { Crypto: cryptocurrencies[symbol], ICON: '' };
@@ -65,7 +61,7 @@ export const GraphViewTable = () => {
             prepareRow(row)
             return (
               <tr {...row.getRowProps()} style={{
-                display: [...visibleRows].includes(row.values['Crypto']) ? 'auto' : 'none'
+                display: [...visibleRows].includes(row.values['Crypto']) ? 'inline' : 'none'
               }}>
                 {
                   row.cells.map((cell) => {

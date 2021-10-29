@@ -7,9 +7,7 @@ const graphViewTableSlice = createSlice({
   },
   reducers: {
     updateVisibleRows: (graphViewTable, action) => {
-      const { visibleRows } = action.payload;
-      console.log('payload:', action.payload);
-      graphViewTable.visibleRows = visibleRows;
+      graphViewTable.visibleRows = action.payload;
     },
   },
 });
@@ -19,6 +17,5 @@ export default graphViewTableSlice;
 export const { updateVisibleRows } = graphViewTableSlice.actions;
 
 export function getVisibleRows(state) {
-  console.log(state.graphViewTable.visibleRows)
   return state.graphViewTable.visibleRows;
 }
