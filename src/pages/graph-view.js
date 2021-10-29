@@ -1,6 +1,9 @@
 import React from 'react';
 import { GRAPH_VIEW } from '../constants/action-types';
 import { CandlestickChart } from '../features/graph/CandlestickChart';
+import { GraphViewTable } from '../features/graphViewTable/GraphViewTable';
+import { AddRowButton } from '../features/addRowInput/addRowButton';
+import './screenCSS/graphView.css';
 
 import { NavBar } from '../features/navBar/NavBar';
 
@@ -17,10 +20,10 @@ import {
 } from '../features/navBar/navBarSlice';
 
 const GraphView = () => {
-  var currentPage = useSelector(selectCurrentPage);
-  const dispatch = useDispatch();
+	var currentPage = useSelector(selectCurrentPage);
+	const dispatch = useDispatch();
 
-  dispatch(updateCurrentPage(GRAPH_VIEW));
+	dispatch(updateCurrentPage(GRAPH_VIEW));
   dispatch(updateDisplayFilterOptions(false));
   dispatch(updateDisplayGraphOptions(true));
   dispatch(updateDisplaySearchBar(true));
@@ -28,19 +31,25 @@ const GraphView = () => {
   return (
     <div>
       <NavBar currentPage={GRAPH_VIEW} displayFilterOptions={false} displayGraphOptions={true} displaySearchBar={true} />
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'Right',
-          alignItems: 'Right',
-          height: '100vh'
-        }}
-      >
-        <h1>Graph View</h1>
-        <CandlestickChart width={800} height={400} />
-      </div>
-    </div>
-  );
+			<div
+				style={{
+					display: 'flex',
+					justifyContent: 'Right',
+					alignItems: 'Right',
+					height: '100vh'
+				}}
+			>
+				<h1>Graph View</h1>
+				<div>
+					<div id={'tbbl'} style={{ overflow: 'hidden', float: 'left', height: '274px', border: '1px solid #ddd' }}>
+						<GraphViewTable />
+					</div>
+					<AddRowButton />
+				</div>
+				<CandlestickChart width={800} height={400} />
+			</div>
+		</div>
+	);
 };
 
 export default GraphView;
