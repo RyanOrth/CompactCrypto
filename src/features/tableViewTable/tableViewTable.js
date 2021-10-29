@@ -7,6 +7,7 @@ import jsonData from "../../data/data.json";
 import { COLUMNS } from "./tableViewTableColumns";
 import { getFavoriteList, setFavoriteList } from "./tableViewTableSlice";
 import { selectValue } from "../dropDown/dropDownSlice";
+import './tableViewTableCSS.css';
 
 
 
