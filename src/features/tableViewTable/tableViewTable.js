@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 import { TiArrowSortedDown, TiArrowSortedUp, TiArrowUnsorted } from 'react-icons/ti';
-import { IoStar, IoStarOutline } from 'react-icons/io5'
+import { IoStar, IoStarOutline } from 'react-icons/io5';
 import { useDispatch, useSelector } from "react-redux";
 import { useTable, useSortBy } from "react-table";
 import jsonData from "../../data/data.json";

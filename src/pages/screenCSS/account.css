@@ -1,0 +1,27 @@
+.page {
+  background-color: #585858;
+  display: 'flex';
+  justify-content: 'center';
+  align-items: 'baseline';
+  height: '100%';
+  padding: '10px';
+  display: block;
+}
+
+.panel {
+  background-color: #00AACC;
+  padding: 10px;
+  position: relative;
+  width: fit-content;
+  margin: 10px;
+  text-align: left;
+}
+
+.panel label {
+  padding: 10px;
+  /* align-items: baseline; */
+}
+
+.favorite {
+  text-align: left;
+}

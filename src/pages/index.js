@@ -26,7 +26,7 @@ const CompactView = () => {
 
     return (
         <div>
-            <NavBar currentPage={COMPACT_VIEW} displayFilterOptions={false} displaySearchBar={false} />
+            <NavBar currentPage={COMPACT_VIEW} displayFilterOptions={false} displayGraphOptions={false} displaySearchBar={false} />
             <div>
                 <div style={{
                     display: 'none',

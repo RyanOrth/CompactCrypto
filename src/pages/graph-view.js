@@ -12,6 +12,7 @@ import {
   selectDisplaySearchBar,
   updateCurrentPage,
   updateDisplayFilterOptions,
+  updateDisplayGraphOptions,
   updateDisplaySearchBar,
 } from '../features/navBar/navBarSlice';
 
@@ -21,11 +22,12 @@ const GraphView = () => {
 
   dispatch(updateCurrentPage(GRAPH_VIEW));
   dispatch(updateDisplayFilterOptions(false));
+  dispatch(updateDisplayGraphOptions(true));
   dispatch(updateDisplaySearchBar(true));
 
   return (
     <div>
-      <NavBar currentPage={GRAPH_VIEW} displayFilterOptions={false} displaySearchBar={false} />
+      <NavBar currentPage={GRAPH_VIEW} displayFilterOptions={false} displayGraphOptions={true} displaySearchBar={true} />
       <div
         style={{
           display: 'flex',

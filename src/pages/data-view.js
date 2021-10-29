@@ -25,7 +25,7 @@ const DataView = () => {
 
   return (
     <div>
-      <NavBar currentPage={DATA_VIEW} displayFilterOptions={false} displaySearchBar={false} />
+      <NavBar currentPage={DATA_VIEW} displayFilterOptions={false} displayGraphOptions={false} displaySearchBar={false} />
       <div
         style={{
           display: 'flex',
