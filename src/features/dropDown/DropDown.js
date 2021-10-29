@@ -2,9 +2,16 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
+  DropDownMenu,
+  DropDownBtn,
+} from './DropDownElements';
+
+import {
   selectItems,
+  selectDefaultTitle,
   selectValue,
   updateItems,
+  updateDefaultTitle,
   updateValue,
 } from './dropDownSlice';
 
@@ -17,17 +24,18 @@ export function DropDown(props) {
 
   dispatch(updateItems(props.items));
 
+  if(currentValue === ''){
+    currentValue = props.defaultTitle;
+  }
+
   return (
-    <div className={styles.dropdown}>
-      <select
-        value={currentValue}
-        onChange={(e) => dispatch(updateValue(e.target.selectValue))}
-      >
-        <option value={items[0]}>{items[0]}</option>
-        <option value={items[1]}>{items[1]}</option>
-        <option value={items[2]}>{items[2]}</option>
-        <option value={items[3]}>{items[3]}</option>
-      </select>
-    </div>
+    <DropDownMenu>
+      <div className={styles.dropdown}>
+        <button className={styles.dropbtn}>{currentValue}</button>
+        <div className={styles['dropdown-content']}>
+          {items.map((item) => <DropDownBtn onClick={() => dispatch((item === 'None' ? updateValue(props.defaultTitle): updateValue(item)))} activeStyle>{item}</DropDownBtn>)}
+        </div>
+      </div>
+    </DropDownMenu>
   );
 }
