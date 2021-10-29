@@ -1,4 +1,24 @@
-table {
+/* .page {
+  background-color: #585858;
+  display: 'flex';
+  justify-content: 'Right';
+  align-items: 'Right';
+  height: '100%';
+  padding: '10px';
+  display: flex;
+} */
+
+.page {
+  justify-content: 'right';
+  align-items: 'right';
+  height: '100vh';
+}
+/* display: 'flex',
+					justifyContent: 'Right',
+					alignItems: 'Right',
+					height: '100vh' */
+
+.table {
   overflow: hidden;
   float: left;
 }
