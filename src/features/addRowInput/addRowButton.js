@@ -51,7 +51,7 @@ export const AddRowButton = () => {
   return (
     <div>
       {isVisible ?
-      <div style={{ width: 200 }}>
+      <div style={{ width: 200, position: 100 }}>
           <ReactSearchAutocomplete
             items={items}
             onSelect={handleOnSelect}

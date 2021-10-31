@@ -37,14 +37,15 @@ const GraphView = () => {
           height: '100vh'
         }}
       >
-        <h1>Graph View</h1>
         <div>
           <div id={'tbbl'} style={{ overflow: 'hidden', float: 'left', height: '274px', border: '1px solid #ddd' }}>
           <GraphViewTable />
           </div>
-          <AddRowButton/>
+          <div>
+            <AddRowButton/>
+          </div>
         </div>
-        <CandlestickChart width={800} height={400} />
+        <CandlestickChart float={'right'} width={800} height={400}/>
       </div>
     </div>
   );

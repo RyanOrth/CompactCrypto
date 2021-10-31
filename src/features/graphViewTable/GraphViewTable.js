@@ -39,7 +39,9 @@ export const GraphViewTable = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   // returning table
   return (
-    <table {...getTableProps()}>
+    <table style={{
+      width: '200px'
+    }} {...getTableProps()}>
       <thead>
         {
           headerGroups.map(headerGroup => (
@@ -61,7 +63,7 @@ export const GraphViewTable = () => {
             prepareRow(row)
             return (
               <tr {...row.getRowProps()} style={{
-                display: [...visibleRows].includes(row.values['Crypto']) ? 'inline' : 'none'
+                display: [...visibleRows].includes(row.values['Crypto']) ? 'inline' : 'none',
               }}>
                 {
                   row.cells.map((cell) => {
