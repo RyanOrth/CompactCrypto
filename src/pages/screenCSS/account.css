@@ -5,14 +5,19 @@
   align-items: 'baseline';
   height: '100%';
   padding: '10px';
-  display: block;
+  /* display: block; */
+}
+
+.panels {
+  position: relative;
+  width: fit-content;
 }
 
 .panel {
   background-color: #00AACC;
   padding: 10px;
   position: relative;
-  width: fit-content;
+  /* width: fit-content; */
   margin: 10px;
   text-align: left;
 }
@@ -24,4 +29,8 @@
 
 .favorite {
   text-align: left;
+}
+
+.notification-list {
+  vertical-align: middle;
 }
