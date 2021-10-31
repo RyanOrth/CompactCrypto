@@ -1,19 +1,17 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { DATA_VIEW } from '../constants/action-types';
-import { TableViewTable } from '../features/tableViewTable/tableViewTable';
-
-import { NavBar } from '../features/navBar/NavBar';
-
-import { useSelector, useDispatch } from 'react-redux';
-
+import { NavBar } from '../features/navBar/NavBar.js';
 import {
-  selectCurrentPage,
-  selectDisplayFilterOptions,
-  selectDisplaySearchBar,
-  updateCurrentPage,
+  selectCurrentPage, updateCurrentPage,
   updateDisplayFilterOptions,
-  updateDisplaySearchBar,
+  updateDisplaySearchBar
 } from '../features/navBar/navBarSlice';
+import { TableViewTable } from '../features/tableViewTable/tableViewTable';
+import './screenCSS/tableView.css';
+
+
+
 
 const DataView = () => {
   var currentPage = useSelector(selectCurrentPage);
@@ -25,7 +23,7 @@ const DataView = () => {
 
   return (
     <div>
-      <NavBar currentPage={DATA_VIEW} displayFilterOptions={false} displaySearchBar={false} />
+      <NavBar currentPage={DATA_VIEW} displayFilterOptions={false} displayGraphOptions={false} displaySearchBar={false} />
       <div
         style={{
           display: 'flex',

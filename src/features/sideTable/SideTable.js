@@ -4,7 +4,7 @@ import { useTable } from "react-table";
 import jsonData from '../../data/data.json';
 import { COLUMNS } from "./sideTableColumns";
 import { getSelectedRow, getSelectedToken, setSelectedRow, setSelectedToken } from "./sideTableSlice";
-import './sideTableStyle.css';
+// import './sideTableStyle.css';
 
 export const SideTable = () => {
   // current row/currency to display on graph

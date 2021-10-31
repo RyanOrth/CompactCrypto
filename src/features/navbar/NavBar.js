@@ -15,6 +15,7 @@ import {
 import {
   selectCurrentPage,
   selectDisplayFilterOptions,
+  selectDisplayGraphOptions,
   selectDisplaySearchBar,
   updateCurrentPage,
   updateDisplayFilterOptions,
@@ -35,6 +36,7 @@ import { DropDown } from '../dropDown/DropDown';
 export function NavBar(props) {
   var currentPage = useSelector(selectCurrentPage);
   var displayFilterOptions = useSelector(selectDisplayFilterOptions);
+  var displayGraphOptions = useSelector(selectDisplayGraphOptions);
   var displaySearchBar = useSelector(selectDisplaySearchBar);
   const dispatch = useDispatch();
 
@@ -59,8 +61,8 @@ export function NavBar(props) {
           </div>
         </div>
       </NavMenu>
-      {displayFilterOptions ? (<DropDown defaultTitle={'Filters'} items={['Favorites', 'High Risk', 'Safe Bet', 'Popular Picks', 'None']} />) : null}
-
+      {displayFilterOptions ? (<DropDown key={'dispayFilterOptions'} defaultTitle={'Filters'} items={['Favorites', 'High Risk', 'Safe Bet', 'Popular Picks', 'None']} />) : null}
+      {/* {displayGraphOptions ? (<DropDown key={'displaySearchBar'} defaultTitle={'Graph Options'} items={["Today's View", 'Historical View']} />) : null} */}
       <NavBtnLinkAccount to='/account'> <IoPersonSharp size={50} /> </NavBtnLinkAccount>
     </Nav>
   );
