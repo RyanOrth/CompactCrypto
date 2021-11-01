@@ -9,16 +9,12 @@
 } */
 
 .page {
-  justify-content: 'right';
   align-items: 'right';
   height: '100vh';
 }
-/* display: 'flex',
-					justifyContent: 'Right',
-					alignItems: 'Right',
-					height: '100vh' */
 
-.table {
+
+table {
   overflow: hidden;
   float: left;
 }

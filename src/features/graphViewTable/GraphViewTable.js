@@ -2,16 +2,12 @@ import React, { useMemo } from "react";
 import { useTable } from "react-table";
 import { COLUMNS } from "./graphViewTableColumns";
 import './graphViewTableStyle.css';
-import { IoCloseCircleOutline} from 'react-icons/io5';
-import { useDispatch, useSelector } from "react-redux";
-import { getVisibleRows, updateVisibleRows } from "./graphViewTableSlice";
-<IoCloseCircleOutline size={20} color={'white'}/>
+import { useSelector } from "react-redux";
+import { getSelectedCryto } from "./graphViewTableSlice";
 
 export const GraphViewTable = () => {
-  const visibleRows = useSelector(getVisibleRows);
-  const dispatch = useDispatch();
+  const selectedCrypto = useSelector(getSelectedCryto);
 
-  const updateRows = (visibleRows) => dispatch(updateVisibleRows(visibleRows));
    // current row/currency to display on graph
    //eslint-disable-next-line
   const fs = require('fs');
@@ -63,14 +59,13 @@ export const GraphViewTable = () => {
             prepareRow(row)
             return (
               <tr {...row.getRowProps()} style={{
-                display: [...visibleRows].includes(row.values['Crypto']) ? 'inline' : 'none',
+                display: selectedCrypto === row.values['Crypto'] ? 'inline' : 'none',
               }}>
                 {
                   row.cells.map((cell) => {
                     return <td {...cell.getCellProps()}>
-                      {(cell.column.Header !== '') ?
-                        cell.render('Cell') :
-                        <IoCloseCircleOutline size={30} color={'white'} onClick={() => updateRows([...visibleRows].filter(n => n !== cell.row.values['Crypto'])) } />
+                      {
+                        cell.render('Cell')
                       }
                     </td>
                   })
