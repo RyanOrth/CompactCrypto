@@ -46,16 +46,16 @@ export const TableViewTable = () => {
   }, useSortBy);
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
-
+  // console.log(filterType);
   return (
-    <table {...getTableProps()}>
+    <table className={'tableViewTable'} {...getTableProps()}>
       <thead>
         {
           headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {
                 headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  <th className={'tableViewTableth'}{...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render('Header')}
                     {
                       (column.Header !== 'Favorite') ?
@@ -79,12 +79,19 @@ export const TableViewTable = () => {
         {
           rows.map(row => {
             prepareRow(row)
+            console.log(row.values)
             return (// Here change color if clicked and runs onclick
-              (filterType !== 'Favorites' || favoriteList.includes(row.values.SYMBOL) || favoriteList.length === 0) ?
-                <tr {...row.getRowProps()}>
+              (
+                filterType === "Filters"
+                || (filterType === 'Favorites' && (favoriteList.includes(row.values.SYMBOL) || favoriteList.length === 0))
+                || (filterType === 'High Risk' && Math.abs(row.values['DATA.2021-10-23.gain_loss']) > 7)
+                || (filterType === 'Safe Bet' && 2 < row.values['DATA.2021-10-23.gain_loss'] && row.values['DATA.2021-10-23.gain_loss'] < 5)
+                || (filterType === 'Popular Picks' && row.values['DATA.2021-10-23.trade_count'] > 30000)
+              ) ?
+                <tr className={'tableViewTabletr'} {...row.getRowProps()}>
                   {
                     row.cells.map((cell) => {// Here is changing cell color based on value
-                      return <td {...cell.getCellProps()} style={{
+                      return <td className={'tableViewTabletd'} {...cell.getCellProps()} style={{
                         background: cell.column.Header === 'Gain/Loss' ? cell.value > 0 ? `rgb(50, 125, 0)` : `rgb(150,40,40)` : null,
                       }}>
                         {(cell.column.Header !== 'Favorite') ?

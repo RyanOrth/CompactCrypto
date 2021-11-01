@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const sideTableSlice = createSlice({
   name: "sideTable",
   initialState: {
-    selectedRow: 2,
+    selectedRow: '1',
     selectedToken: 'BTC'
   },
   reducers: {

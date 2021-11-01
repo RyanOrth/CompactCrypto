@@ -40,14 +40,14 @@ export const SideTable = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   // returning table
   return (
-    <table {...getTableProps()}>
+    <table className={'sideTable'}{...getTableProps()}>
       <thead>
         {
           headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {
                 headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>
+                  <th className={'sideTableth'}{...column.getHeaderProps()}>
                     {column.render('Header')}
                   </th>
                 ))
@@ -61,13 +61,13 @@ export const SideTable = () => {
           rows.map(row => {
             prepareRow(row)
             return (// Here change color if clicked and runs onclick
-              <tr {...row.getRowProps()} onClick={() => selection(row.id, row.values['SYMBOL'])} style={{
+              <tr className={'sideTabletr'}{...row.getRowProps()} onClick={() => selection(row.id, row.values['SYMBOL'])} style={{
                 background: row.id === selectedRow ? '#00afec' : 'white',
                 color: row.id === selectedRow ? 'white' : 'black'
               }}>
                 {
                   row.cells.map((cell) => {// Here is changing cell color based on value
-                    return <td {...cell.getCellProps()} style={{
+                    return <td className={'sideTabletd'}{...cell.getCellProps()} style={{
                       background: cell.column.Header === 'Gain/Loss' ? cell.value > 0 ? `rgb(50, 125, 0)` : `rgb(150,40,40)` : null,
                     }}>
                       {cell.render('Cell')}

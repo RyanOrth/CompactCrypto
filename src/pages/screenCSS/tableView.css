@@ -1,4 +1,4 @@
-table {
+.tableViewTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
@@ -7,19 +7,19 @@ table {
   overflow-y: scroll; */
 }
 
-table td, table th {
+.tableViewTable .tableViewTabletd, .tableViewTable .tableViewTableth {
   border: 1px solid #ddd;
   padding: 8px;
 }
-table tr{
+.tableViewTable .tableViewTabletr{
 	background-color: #585858;
 }
 
-table tr:nth-child(even){background-color: #353535;}
+.tableViewTable .tableViewTabletr:nth-child(even){background-color: #353535;}
 
-table tr:hover {background-color: rgb(139, 139, 139);}
+.tableViewTable .tableViewTabletr:hover {background-color: rgb(139, 139, 139);}
 
-table th {
+.tableViewTable .tableViewTableth {
   text-align: left;
   background-color: #04AA6D;
   color: white;
