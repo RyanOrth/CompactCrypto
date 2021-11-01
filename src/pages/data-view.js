@@ -32,7 +32,6 @@ const DataView = () => {
           height: '10vh'
         }}
       >
-        <h1>Data View</h1>
       </div>
       <div style={{
         margin: 'auto',

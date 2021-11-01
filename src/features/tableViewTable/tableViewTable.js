@@ -45,17 +45,30 @@ export const TableViewTable = () => {
     data
   }, useSortBy);
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
+  const HELPTEXT = {
+    "Symbol": "This is a unique set of letters to identify each crypto. Mainly used for security purposes",
+    "Favorite": "Save Crypto Currencies for later",
+    "Name": "Name of the cryptocurrency",
+    "Value": "Current price of the crypto in USD",
+    "Gain/Loss": "This is the percent that the value of the currency has changed in the last 24 hours",
+    "Volume": "This is the amount of the currency traded in the past 24 hours. Note: giving someone $5 would be a volume of 5",
+    "Trade Amount": "This is the amount of trades in a currency that occured in the past 24 hours. Note: giving someone $5 would be a trade amount of 1",
+  };
 
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
+  // console.log(filterType);
   return (
-    <table {...getTableProps()}>
+    <table className={'tableViewTable'} {...getTableProps()}>
       <thead>
         {
           headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()} style={{
+              position: 'sticky',
+              top: '-1px',
+            }}>
               {
                 headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                  <th className={'tableViewTableth tooltip'}{...column.getHeaderProps(column.getSortByToggleProps({ title: undefined }))}>
                     {column.render('Header')}
                     {
                       (column.Header !== 'Favorite') ?
@@ -68,6 +81,10 @@ export const TableViewTable = () => {
                           }
                         </span> : ''
                     }
+                    <span className={'tooltiptext'}> {
+                      HELPTEXT[column.Header]
+                    }
+                    </span>
                   </th>
                 ))
               }
@@ -79,12 +96,19 @@ export const TableViewTable = () => {
         {
           rows.map(row => {
             prepareRow(row)
+            // console.log(filterType) 
             return (// Here change color if clicked and runs onclick
-              (filterType !== 'Favorites' || favoriteList.includes(row.values.SYMBOL) || favoriteList.length === 0) ?
-                <tr {...row.getRowProps()}>
+              (
+                filterType === "Filters"
+                || (filterType === 'Favorites' && (favoriteList.includes(row.values.SYMBOL) || favoriteList.length === 0))
+                || (filterType === 'High Risk' && Math.abs(row.values['DATA.2021-10-23.gain_loss']) > 7)
+                || (filterType === 'Safe Bet' && 2 < row.values['DATA.2021-10-23.gain_loss'] && row.values['DATA.2021-10-23.gain_loss'] < 5)
+                || (filterType === 'Popular Picks' && row.values['DATA.2021-10-23.trade_count'] > 30000)
+              ) ?
+                <tr className={'tableViewTabletr'} {...row.getRowProps()}>
                   {
                     row.cells.map((cell) => {// Here is changing cell color based on value
-                      return <td {...cell.getCellProps()} style={{
+                      return <td className={'tableViewTabletd'} {...cell.getCellProps()} style={{
                         background: cell.column.Header === 'Gain/Loss' ? cell.value > 0 ? `rgb(50, 125, 0)` : `rgb(150,40,40)` : null,
                       }}>
                         {(cell.column.Header !== 'Favorite') ?
