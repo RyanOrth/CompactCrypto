@@ -42,7 +42,7 @@ const CompactView = () => {
             marginRight: '5%',
             marginTop: '5%',
             width: '55%',
-            height: '80%',
+            height: '120%',
           }}>
             <CandlestickChart width={'100%'} height={'100%'} currentPage={'COMPACT_VIEW'} />
           </div>

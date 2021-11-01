@@ -44,11 +44,18 @@ export const SideTable = () => {
       <thead>
         {
           headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()} style={{
+              position: 'sticky',
+              top: '-1px',
+            }} >
               {
                 headerGroup.headers.map(column => (
-                  <th className={'sideTableth'}{...column.getHeaderProps()}>
-                    {column.render('Header')}
+                  <th className={'sideTableth'}{...column.getHeaderProps()} style={{
+                  }}
+                    /* onClick={() => console.log()}*/ >
+                    {
+                      column.render('Header')
+                    }
                   </th>
                 ))
               }
@@ -67,7 +74,7 @@ export const SideTable = () => {
               }}>
                 {
                   row.cells.map((cell) => {// Here is changing cell color based on value
-                    return <td className={'sideTabletd'}{...cell.getCellProps()} style={{
+                    return <td className={'sideTabletd'}{...cell.getCellProps()} /*onClick={() => console.log(cell)}*/ style={{
                       background: cell.column.Header === 'Gain/Loss' ? cell.value > 0 ? `rgb(50, 125, 0)` : `rgb(150,40,40)` : null,
                     }}>
                       {cell.render('Cell')}

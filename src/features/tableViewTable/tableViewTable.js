@@ -62,7 +62,10 @@ export const TableViewTable = () => {
       <thead>
         {
           headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()} style={{
+              position: 'sticky',
+              top: '-1px',
+            }}>
               {
                 headerGroup.headers.map(column => (
                   <th className={'tableViewTableth tooltip'}{...column.getHeaderProps(column.getSortByToggleProps({ title: undefined }))}>
