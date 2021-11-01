@@ -40,7 +40,9 @@ export const GraphViewTable = () => {
       borderWidth: '2px',
       borderColor: 'white',
     }} {...getTableProps()}>
-      <thead>
+      <thead style={{
+        alignContent: 'center'
+      }}>
         {
           headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>

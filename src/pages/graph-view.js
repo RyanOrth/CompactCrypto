@@ -29,29 +29,19 @@ const GraphView = () => {
   dispatch(updateDisplaySearchBar(true));
 
   return (
-    <div>
+    <div >
       <NavBar currentPage={GRAPH_VIEW} displayFilterOptions={false} displayGraphOptions={true} displaySearchBar={true} />
-			<div
-				style={{
-					display: 'flex',
-					alignItems: 'Right',
-					height: '500px'
-				}}
-			>
-				<div id={'tbbl'} style={{
-            float: 'left',
-          }}>
-					<GraphViewTable />
-					<AddRowButton/>
-          </div>
-          <div style={{
-            float: 'right',
-            marginRight: '5%',
-            marginTop: '5%',
-            width: '55%',
-            height: '80%',
-          }}>
-            <CandlestickChart width={'100%'} height={'100%'} />
+			<div className={'page'}>
+				<div className={'tableAndButton'}>
+					<div className={'table'}>
+						<GraphViewTable />
+					</div>
+					<div>
+							<AddRowButton/>
+					</div>
+				</div>
+				<div className={'graph'}>
+            <CandlestickChart />
           </div>
 			</div>
 		</div>
