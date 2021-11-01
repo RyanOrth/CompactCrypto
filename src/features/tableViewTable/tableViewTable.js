@@ -96,7 +96,7 @@ export const TableViewTable = () => {
         {
           rows.map(row => {
             prepareRow(row)
-            console.log(row.values)
+            // console.log(filterType) 
             return (// Here change color if clicked and runs onclick
               (
                 filterType === "Filters"

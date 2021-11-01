@@ -46,8 +46,14 @@
   position: absolute;
   z-index: 1;
 }
+/* 
+.tooltiptext:after {
+  opacity: 0;
+} */
 
 /* Show the tooltip text when you mouse over the tooltip container */
 .tooltip:hover .tooltiptext {
   visibility: visible;
+  /* opacity: 1;
+  transition: opacity 0s linear 1s; */
 }

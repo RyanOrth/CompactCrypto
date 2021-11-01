@@ -3,6 +3,7 @@ import Chart from "react-apexcharts";
 import jsonData from '../../data/data.json';
 import { getSelectedToken } from '../sideTable/sideTableSlice';
 import { useSelector } from "react-redux";
+import { BiHelpCircle } from 'react-icons/bi';
 import './candleStick.css';
 export const CandlestickChart = (props) => {
   const data = [];
@@ -23,6 +24,16 @@ export const CandlestickChart = (props) => {
         toolbar: {
           tools: {
             download: true,
+            customIcons: [{
+              icon: '<span>(?)</span>',//'<BiHelpCircle size=5  color="black">',
+              index: 6,
+              title: 'Help',
+              class: 'custom-icon',
+              click: function (chart, options, e) {
+                console.log('click')
+              },
+
+            }],
           },
         },
       },
