@@ -9,8 +9,9 @@
 } */
 
 .page {
+  justify-content: 'right';
   align-items: 'right';
-  height: '100vh';
+  height: 1vmax;
 }
 
 

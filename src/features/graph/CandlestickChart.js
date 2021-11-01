@@ -1,13 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 import Chart from "react-apexcharts";
 import jsonData from '../../data/data.json';
 import { getSelectedToken } from '../sideTable/sideTableSlice';
+import { getGraphViewToken } from "../graphViewTable/graphViewTableSlice";
 import { useSelector } from "react-redux";
 import './candleStick.css';
 export const CandlestickChart = (props) => {
 	const data = [];
 	const compact_token = useSelector(getSelectedToken);
-	const token = (props.currentPage === 'COMPACT_VIEW') ? compact_token : 'DOGE';
+	const graph_token = useSelector(getGraphViewToken);
+	const token = (props.currentPage === 'COMPACT_VIEW') ? compact_token : graph_token;
 	const objOfDays = jsonData.filter(x => x.SYMBOL === token).pop()['DATA'];
 	for (let d = new Date('2021-10-10'); d <= new Date('2021-10-23'); d.setDate(d.getDate() + 1)) {
 		const dayData = objOfDays[d.toISOString().substr(0, 10)];

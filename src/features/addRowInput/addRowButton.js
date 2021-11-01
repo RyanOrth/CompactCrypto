@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { selectVisibility, toggleVisibility } from "./addRowButtonSlice";
-import { getSelectedCryto, changeCrypto } from "../graphViewTable/graphViewTableSlice";
+import { getSelectedCryto, changeCrypto, changeToken } from "../graphViewTable/graphViewTableSlice";
 import symbolToCrypto from "../../data/symbolToCrypto";
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 
@@ -16,8 +16,14 @@ export const AddRowButton = () => {
 
   const setCrypto = (item) => {
     const crypto = item;
-    console.log(crypto);
-    dispatch(changeCrypto(crypto))
+    let graphToken = '';
+    for (let [key, value] of symbolToCrypto.entries()) {
+      if (value === item)
+        graphToken = key;
+    }
+    dispatch(changeCrypto(crypto));
+    console.log(graphToken);
+    dispatch(changeToken(graphToken));
   }
 
   const names = [...symbolToCrypto.values()];

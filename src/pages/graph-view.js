@@ -34,19 +34,25 @@ const GraphView = () => {
 			<div
 				style={{
 					display: 'flex',
-					justifyContent: 'Right',
 					alignItems: 'Right',
-					height: '100vh'
+					height: '500px'
 				}}
 			>
-				<h1>Graph View</h1>
-				<div>
-					<div id={'tbbl'} style={{ overflow: 'hidden', float: 'left', height: '274px', border: '1px solid #ddd' }}>
-						<GraphViewTable />
-					</div>
-					<AddRowButton />
-				</div>
-				<CandlestickChart width={800} height={400} />
+				<div id={'tbbl'} style={{
+            float: 'left',
+          }}>
+					<GraphViewTable />
+					<AddRowButton/>
+          </div>
+          <div style={{
+            float: 'right',
+            marginRight: '5%',
+            marginTop: '5%',
+            width: '55%',
+            height: '80%',
+          }}>
+            <CandlestickChart width={'100%'} height={'100%'} />
+          </div>
 			</div>
 		</div>
 	);

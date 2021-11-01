@@ -8,7 +8,6 @@ import { getSelectedCryto } from "./graphViewTableSlice";
 export const GraphViewTable = () => {
   const selectedCrypto = useSelector(getSelectedCryto);
 
-   // current row/currency to display on graph
    //eslint-disable-next-line
   const fs = require('fs');
   const json = require('../../data/data.json');
@@ -20,7 +19,7 @@ export const GraphViewTable = () => {
   
   let rowData = useMemo(() => [], []);
   for (const symbol of symbols) {
-    const row = { Crypto: cryptocurrencies[symbol], ICON: '' };
+    const row = { Crypto: cryptocurrencies[symbol] };
     rowData.push(row);
   }
   // memoizing columns and data to prevent react from reloading json every frame
@@ -36,7 +35,10 @@ export const GraphViewTable = () => {
   // returning table
   return (
     <table style={{
-      width: '200px'
+      width: '200px',
+      height: '200px',
+      borderWidth: '2px',
+      borderColor: 'white',
     }} {...getTableProps()}>
       <thead>
         {
