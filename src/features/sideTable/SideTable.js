@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useTable } from "react-table";
 import jsonData from '../../data/data.json';
 import { COLUMNS } from "./sideTableColumns";
-import { getSelectedRow, getSelectedToken, setSelectedRow, setSelectedToken } from "./sideTableSlice";
+import { getSelectedRow, setSelectedRow, setSelectedToken } from "./sideTableSlice";
 // import './sideTableStyle.css';
 
 export const SideTable = () => {
   // current row/currency to display on graph
   const selectedRow = useSelector(getSelectedRow);
-  const selectedToken = useSelector(getSelectedToken);
+  // const selectedToken = useSelector(getSelectedToken);
   const dispatch = useDispatch();
 
   const selectRow = (selectedRow) =>

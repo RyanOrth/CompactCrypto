@@ -45,6 +45,16 @@ export const TableViewTable = () => {
     data
   }, useSortBy);
 
+  const HELPTEXT = {
+    "Symbol": "This is a unique set of letters to identify each crypto. Mainly used for security purposes",
+    "Favorite": "Save Crypto Currencies for later",
+    "Name": "Name of the cryptocurrency",
+    "Value": "Current price of the crypto in USD",
+    "Gain/Loss": "This is the percent that the value of the currency has changed in the last 24 hours",
+    "Volume": "This is the amount of the currency traded in the past 24 hours. Note: giving someone $5 would be a volume of 5",
+    "Trade Amount": "This is the amount of trades in a currency that occured in the past 24 hours. Note: giving someone $5 would be a trade amount of 1",
+  };
+
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   // console.log(filterType);
   return (
@@ -55,7 +65,7 @@ export const TableViewTable = () => {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {
                 headerGroup.headers.map(column => (
-                  <th className={'tableViewTableth'}{...column.getHeaderProps(column.getSortByToggleProps())}>
+                  <th className={'tableViewTableth tooltip'}{...column.getHeaderProps(column.getSortByToggleProps({ title: undefined }))}>
                     {column.render('Header')}
                     {
                       (column.Header !== 'Favorite') ?
@@ -68,6 +78,10 @@ export const TableViewTable = () => {
                           }
                         </span> : ''
                     }
+                    <span className={'tooltiptext'}> {
+                      HELPTEXT[column.Header]
+                    }
+                    </span>
                   </th>
                 ))
               }
