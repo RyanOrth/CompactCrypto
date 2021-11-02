@@ -34,12 +34,7 @@ export const GraphViewTable = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   // returning table
   return (
-    <table style={{
-      width: '200px',
-      height: '200px',
-      borderWidth: '2px',
-      borderColor: 'white',
-    }} {...getTableProps()}>
+    <table className={'graphTable'} {...getTableProps()}>
       <thead style={{
         alignContent: 'center'
       }}>
@@ -48,7 +43,7 @@ export const GraphViewTable = () => {
             <tr {...headerGroup.getHeaderGroupProps()}>
               {
                 headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>
+                  <th {...column.getHeaderProps()} className={'graphTableHeader'}>
                     {column.render('Header')}
                   </th>
                 ))
@@ -67,7 +62,7 @@ export const GraphViewTable = () => {
               }}>
                 {
                   row.cells.map((cell) => {
-                    return <td {...cell.getCellProps()}>
+                    return <td className={'graphTableCell'}{...cell.getCellProps()}>
                       {
                         cell.render('Cell')
                       }

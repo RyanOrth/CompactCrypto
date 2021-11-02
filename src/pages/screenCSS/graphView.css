@@ -11,6 +11,7 @@
 
 .graph {
   float: 'right';
+  justify-self: right;
   width: 100vmin;
   height: 100vmin;
   margin: 10px;
@@ -21,7 +22,7 @@
   margin: 10px;
 }
 
-.table {
+.graphViewTable {
   overflow: hidden;
   border-style: solid;
   border-width: 1px;

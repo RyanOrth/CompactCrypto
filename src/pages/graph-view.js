@@ -33,7 +33,7 @@ const GraphView = () => {
       <NavBar currentPage={GRAPH_VIEW} displayFilterOptions={false} displayGraphOptions={true} displaySearchBar={true} />
 			<div className={'page'}>
 				<div className={'tableAndButton'}>
-					<div className={'table'}>
+					<div className={'graphViewTable'}>
 						<GraphViewTable />
 					</div>
 					<div>

@@ -21,7 +21,6 @@ export const AddRowButton = () => {
         graphToken = key;
     }
     dispatch(changeCrypto(crypto));
-    console.log(graphToken);
     dispatch(changeToken(graphToken));
   }
 
