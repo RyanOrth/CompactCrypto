@@ -62,7 +62,7 @@ export function NavBar(props) {
         </div>
       </NavMenu>
       {displayFilterOptions ? (<DropDown key={'dispayFilterOptions'} defaultTitle={'Filters'} items={['Favorites', 'High Risk', 'Safe Bet', 'Popular Picks', 'None']} />) : null}
-      {/* {displayGraphOptions ? (<DropDown key={'displaySearchBar'} defaultTitle={'Graph Options'} items={["Today's View", 'Historical View']} />) : null} */}
+      {displayGraphOptions ? (<DropDown key={'displaySearchBar'} defaultTitle={'Graph Options'} items={["Today's View", 'Historical View']} />) : null}
       <NavBtnLinkAccount to='/account'> <IoPersonSharp size={50} /> </NavBtnLinkAccount>
     </Nav>
   );

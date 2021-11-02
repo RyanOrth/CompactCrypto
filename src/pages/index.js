@@ -6,6 +6,7 @@ import { NavBar } from '../features/navBar/NavBar';
 import {
   selectCurrentPage, updateCurrentPage,
   updateDisplayFilterOptions,
+  updateDisplayGraphOptions,
   updateDisplaySearchBar
 } from '../features/navBar/navBarSlice';
 import { SideTable } from '../features/sideTable/SideTable';
@@ -21,6 +22,7 @@ const CompactView = () => {
 
   dispatch(updateCurrentPage(COMPACT_VIEW));
   dispatch(updateDisplayFilterOptions(false));
+  dispatch(updateDisplayGraphOptions(false));
   dispatch(updateDisplaySearchBar(false));
 
   return (

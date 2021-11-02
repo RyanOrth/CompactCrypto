@@ -8,6 +8,7 @@ import {
   selectDisplaySearchBar,
   updateCurrentPage,
   updateDisplayFilterOptions,
+  updateDisplayGraphOptions,
   updateDisplaySearchBar,
 } from '../features/navBar/navBarSlice';
 
@@ -17,6 +18,7 @@ import './screenCSS/account.css';
 import { getFavoriteList, setFavoriteList } from "../features/tableViewTable/tableViewTableSlice";
 import { IoStar } from 'react-icons/io5';
 import { FaSquare, FaCheckSquare } from 'react-icons/fa';
+import { CheckBoxItem } from '../features/checkBoxItem/CheckBoxItem';
 
 const Account = () => {
   var currentPage = useSelector(selectCurrentPage);
@@ -27,6 +29,7 @@ const Account = () => {
 
   dispatch(updateCurrentPage(ACCOUNT_VIEW));
   dispatch(updateDisplayFilterOptions(false));
+  dispatch(updateDisplayGraphOptions(false));
   dispatch(updateDisplaySearchBar(false));
 
   const updateFavoriteList = (favoriteList) =>
@@ -51,6 +54,7 @@ const Account = () => {
               <label for='fEmail'>Email Address</label>
               <input></input>
             </div>
+            <button>Click for Email Notifications</button>
           </div>
 
           <div className={'panel'}>
@@ -70,9 +74,9 @@ const Account = () => {
               <label>Types of Cryptocurrencies for Notifications</label>
             </dive>
             <div className={'notification-list'}>
-              <div className={'notification-item'}><FaSquare />Changes to Favorites</div>
-              <div className={'notification-item'}><FaSquare />Quick Decrease</div>
-              <div className={'notification-item'}><FaSquare />Quick Increase</div>
+              <CheckBoxItem id={0} key={'checkbox1'} boxChecked={false} item={'Changes to Favorites'}/>
+              <CheckBoxItem id={1} key={'checkbox2'} boxChecked={false} item={'Quick Decrease'}/>
+              <CheckBoxItem id={2} key={'checkbox3'} boxChecked={false} item={'Quick Increase'}/>
             </div>
           </div>
 
