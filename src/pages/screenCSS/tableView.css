@@ -57,3 +57,8 @@
   /* opacity: 1;
   transition: opacity 0s linear 1s; */
 }
+
+.tableHeaderRow {
+  position: sticky;
+  top: -1px;
+}
