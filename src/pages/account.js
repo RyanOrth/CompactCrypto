@@ -43,7 +43,6 @@ const Account = () => {
     <div>
       <NavBar currentPage={ACCOUNT_VIEW} displayFilterOptions={false} displayGraphOptions={false} displaySearchBar={false} />
       <div className={'page'}>
-        <h1>Account</h1>
         <div className={'panels'}>
           <div className={'panel'}>
             <div>
