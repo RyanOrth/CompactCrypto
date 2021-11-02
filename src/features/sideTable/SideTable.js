@@ -44,10 +44,7 @@ export const SideTable = () => {
       <thead>
         {
           headerGroups.map(headerGroup => (
-            <tr {...headerGroup.getHeaderGroupProps()} style={{
-              position: 'sticky',
-              top: '-1px',
-            }} >
+            <tr className={'tableHeaderRow'} {...headerGroup.getHeaderGroupProps()} >
               {
                 headerGroup.headers.map(column => (
                   <th className={'sideTableth'}{...column.getHeaderProps()} style={{
