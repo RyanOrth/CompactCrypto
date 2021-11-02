@@ -27,3 +27,9 @@
   background-color: #04AA6D;
   color: white;
 }
+
+
+.tableHeaderRow {
+  position: sticky;
+  top: -1px;
+}

@@ -8,7 +8,7 @@ import { getSelectedCryto } from "./graphViewTableSlice";
 export const GraphViewTable = () => {
   const selectedCrypto = useSelector(getSelectedCryto);
 
-   //eslint-disable-next-line
+  //eslint-disable-next-line
   const fs = require('fs');
   const json = require('../../data/data.json');
   const symbols = new Set();
@@ -16,7 +16,7 @@ export const GraphViewTable = () => {
     symbols.add(object.SYMBOL);
   }
   const cryptocurrencies = require('cryptocurrencies');
-  
+
   let rowData = useMemo(() => [], []);
   for (const symbol of symbols) {
     const row = { Crypto: cryptocurrencies[symbol] };
@@ -34,19 +34,16 @@ export const GraphViewTable = () => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = tableInstance;
   // returning table
   return (
-    <table style={{
-      width: '200px',
-      height: '200px',
-      borderWidth: '2px',
-      borderColor: 'white',
-    }} {...getTableProps()}>
-      <thead>
+    <table className={'graphTable'} {...getTableProps()}>
+      <thead style={{
+        alignContent: 'center'
+      }}>
         {
           headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>
               {
                 headerGroup.headers.map(column => (
-                  <th {...column.getHeaderProps()}>
+                  <th {...column.getHeaderProps()} className={'graphTableHeader'}>
                     {column.render('Header')}
                   </th>
                 ))
@@ -65,7 +62,7 @@ export const GraphViewTable = () => {
               }}>
                 {
                   row.cells.map((cell) => {
-                    return <td {...cell.getCellProps()}>
+                    return <td className={'graphTableCell'}{...cell.getCellProps()}>
                       {
                         cell.render('Cell')
                       }
