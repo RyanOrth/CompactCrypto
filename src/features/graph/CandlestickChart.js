@@ -9,10 +9,15 @@ import './candleStick.css';
 export const CandlestickChart = (props) => {
   const data = [];
   const compact_token = useSelector(getSelectedToken);
-	const graph_token = useSelector(getGraphViewToken);
+  const graph_token = useSelector(getGraphViewToken);
   const token = (props.currentPage === 'COMPACT_VIEW') ? compact_token : graph_token;
   const objOfDays = jsonData.filter(x => x.SYMBOL === token).pop()['DATA'];
-  for (let d = new Date('2021-10-10'); d <= new Date('2021-10-23'); d.setDate(d.getDate() + 1)) {
+  console.log(new Date(Math.min.apply(null, Object.keys(objOfDays).map((date) => {
+    return new Date(date);
+  }))).toISOString().substr(0, 10));
+  for (let d = new Date(Math.min.apply(null, Object.keys(objOfDays).map((date) => {
+    return new Date(date);
+  }))); d <= new Date('2021-10-23'); d.setDate(d.getDate() + 1)) {
     const dayData = objOfDays[d.toISOString().substr(0, 10)];
     data.push({
       x: d.toISOString().substr(0, 10),
