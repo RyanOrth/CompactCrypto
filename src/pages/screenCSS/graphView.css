@@ -1,21 +1,31 @@
-/* .page {
+ .page {
   background-color: #585858;
-  display: 'flex';
-  justify-content: 'Right';
-  align-items: 'Right';
-  height: '100%';
-  padding: '10px';
   display: flex;
-} */
-
-.page {
   justify-content: 'right';
   align-items: 'right';
-  height: 1vmax;
+  height: 100%;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+} 
+
+.graph {
+  float: 'right';
+  justify-self: right;
+  width: 100vmin;
+  height: 100vmin;
+  margin: 10px;
 }
 
+.tableAndButton {
+  float: left;
+  margin: 10px;
+}
 
 .graphViewTable {
   overflow: hidden;
-  float: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  margin-bottom: 10px;
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
 import Navbar from './features/navBar';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; // Web Implementation
+// import { HashRouter as Router, Switch, Route } from 'react-router-dom'; // Desktop Implementation, switch comments before building distribution
 import CompactView from './pages';
 import DataView from './pages/data-view';
 import GraphView from './pages/graph-view';

@@ -5,6 +5,7 @@ import { NavBar } from '../features/navBar/NavBar.js';
 import {
   selectCurrentPage, updateCurrentPage,
   updateDisplayFilterOptions,
+  updateDisplayGraphOptions,
   updateDisplaySearchBar
 } from '../features/navBar/navBarSlice';
 import { TableViewTable } from '../features/tableViewTable/tableViewTable';
@@ -19,6 +20,7 @@ const DataView = () => {
 
   dispatch(updateCurrentPage(DATA_VIEW));
   dispatch(updateDisplayFilterOptions(true));
+  dispatch(updateDisplayGraphOptions(false));
   dispatch(updateDisplaySearchBar(true));
 
   return (

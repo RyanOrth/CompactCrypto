@@ -6,6 +6,7 @@ import dropDownReducer from '../features/dropDown/dropDownSlice';
 import navBarReducer from '../features/navBar/navBarSlice';
 import tableViewTableSlice from '../features/tableViewTable/tableViewTableSlice';
 import addRowButtonSlice from '../features/addRowInput/addRowButtonSlice';
+import checkBoxItemReducer from '../features/checkBoxItem/checkBoxItemSlice';
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +17,8 @@ export const store = configureStore({
     [addRowButtonSlice.name]: addRowButtonSlice.reducer,
     dropDown: dropDownReducer,
     navBar: navBarReducer,
+    checkBoxItem: checkBoxItemReducer,
+
   },
 }, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 

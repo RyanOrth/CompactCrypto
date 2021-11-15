@@ -2,6 +2,7 @@
   "name": "compact-crypto",
   "version": "0.1.0",
   "description": "A compact data viewer for cryptocurrency trends.",
+  "main": "public/electron.js",
   "private": true,
   "main": "public/electron.js",
   "license": "UNLICENSED",
@@ -33,7 +34,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron-dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
-    "electron-pack": "electron-builder -c.extraMetadata.main=build/electron.js -mwl",
+    "electron-pack": "electron-builder -c.extraMetadata.main=build/electron.js",
     "preelectron-pack": "react-scripts build"
   },
   "eslintConfig": {

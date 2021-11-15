@@ -23,9 +23,11 @@ export function DropDown(props) {
   const dispatch = useDispatch();
 
   dispatch(updateItems(props.items));
+  dispatch(updateDefaultTitle(props.defaultTitle));
 
-  if(currentValue === ''){
+  if(!props.items.includes(currentValue) || currentValue === ''){
     currentValue = props.defaultTitle;
+    dispatch(updateValue(currentValue));
   }
 
   return (

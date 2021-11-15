@@ -6,11 +6,12 @@ import { NavBar } from '../features/navBar/NavBar';
 import {
   selectCurrentPage, updateCurrentPage,
   updateDisplayFilterOptions,
+  updateDisplayGraphOptions,
   updateDisplaySearchBar
 } from '../features/navBar/navBarSlice';
 import { SideTable } from '../features/sideTable/SideTable';
 import { getSelectedToken } from '../features/sideTable/sideTableSlice';
-import './screenCSS/compactView.css';
+import styles from './screenCSS/compactView.css';
 
 
 
@@ -21,6 +22,7 @@ const CompactView = () => {
 
   dispatch(updateCurrentPage(COMPACT_VIEW));
   dispatch(updateDisplayFilterOptions(false));
+  dispatch(updateDisplayGraphOptions(false));
   dispatch(updateDisplaySearchBar(false));
 
   return (
@@ -28,22 +30,11 @@ const CompactView = () => {
       <NavBar currentPage={COMPACT_VIEW} displayFilterOptions={false} displayGraphOptions={false} displaySearchBar={false} />
       <div>
 
-        <div style={{
-          height: '500px',
-        }}>
-          <div id={'tbbl'} style={{
-            float: 'left',
-          }}>
-
+        <div className={'page'}>
+          <div id={'tbbl'}>
             <SideTable />
           </div>
-          <div style={{
-            float: 'right',
-            marginRight: '5%',
-            marginTop: '5%',
-            width: '55%',
-            height: '120%',
-          }}>
+          <div className={'candleStickChart'}>
             <CandlestickChart width={'100%'} height={'100%'} currentPage={'COMPACT_VIEW'} />
           </div>
         </div>
