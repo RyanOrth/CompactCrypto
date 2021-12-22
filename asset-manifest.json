@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/CompactCrypto/static/css/main.6a356559.chunk.css",
-    "main.js": "/CompactCrypto/static/js/main.ecd10347.chunk.js",
-    "main.js.map": "/CompactCrypto/static/js/main.ecd10347.chunk.js.map",
+    "main.js": "/CompactCrypto/static/js/main.87171dca.chunk.js",
+    "main.js.map": "/CompactCrypto/static/js/main.87171dca.chunk.js.map",
     "runtime-main.js": "/CompactCrypto/static/js/runtime-main.3ef49335.js",
     "runtime-main.js.map": "/CompactCrypto/static/js/runtime-main.3ef49335.js.map",
     "static/js/2.f4421dc3.chunk.js": "/CompactCrypto/static/js/2.f4421dc3.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.3ef49335.js",
     "static/js/2.f4421dc3.chunk.js",
     "static/css/main.6a356559.chunk.css",
-    "static/js/main.ecd10347.chunk.js"
+    "static/js/main.87171dca.chunk.js"
   ]
 }
