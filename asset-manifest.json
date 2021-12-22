@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/CompactCrypto/static/css/main.6a356559.chunk.css",
+    "main.js": "/CompactCrypto/static/js/main.ecd10347.chunk.js",
+    "main.js.map": "/CompactCrypto/static/js/main.ecd10347.chunk.js.map",
+    "runtime-main.js": "/CompactCrypto/static/js/runtime-main.3ef49335.js",
+    "runtime-main.js.map": "/CompactCrypto/static/js/runtime-main.3ef49335.js.map",
+    "static/js/2.f4421dc3.chunk.js": "/CompactCrypto/static/js/2.f4421dc3.chunk.js",
+    "static/js/2.f4421dc3.chunk.js.map": "/CompactCrypto/static/js/2.f4421dc3.chunk.js.map",
+    "index.html": "/CompactCrypto/index.html",
+    "static/css/main.6a356559.chunk.css.map": "/CompactCrypto/static/css/main.6a356559.chunk.css.map",
+    "static/js/2.f4421dc3.chunk.js.LICENSE.txt": "/CompactCrypto/static/js/2.f4421dc3.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3ef49335.js",
+    "static/js/2.f4421dc3.chunk.js",
+    "static/css/main.6a356559.chunk.css",
+    "static/js/main.ecd10347.chunk.js"
+  ]
+}
