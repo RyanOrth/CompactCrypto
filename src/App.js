@@ -17,7 +17,7 @@ function App() {
     //   </header>
     // </div>
     <div className="App">
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path='/' exact component={CompactView} />
           <Route path='/data-view' component={DataView} />
