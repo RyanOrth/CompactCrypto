@@ -71,7 +71,7 @@
       "build/**/*",
       "node_modules/**/*"
     ],
-    "icon": "public/icon.png",
+    "icon": "public/logo.png",
     "directories": {
       "buildResources": "public"
     },
