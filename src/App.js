@@ -10,12 +10,6 @@ import Account from './pages/account';
 
 function App() {
   return (
-    // <div className="App">
-    //   <header className="App-header">
-    //     <img src={logo} className="App-logo" alt="logo" />
-    //     <Counter />
-    //   </header>
-    // </div>
     <div className="App">
       <Router basename={process.env.PUBLIC_URL}>
         <Switch>
