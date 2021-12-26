@@ -10,13 +10,13 @@ import { NavBar } from '../features/navBar/NavBar';
 import { useSelector, useDispatch } from 'react-redux';
 
 import {
-  selectCurrentPage,
-  selectDisplayFilterOptions,
-  selectDisplaySearchBar,
-  updateCurrentPage,
-  updateDisplayFilterOptions,
-  updateDisplayGraphOptions,
-  updateDisplaySearchBar,
+	selectCurrentPage,
+	selectDisplayFilterOptions,
+	selectDisplaySearchBar,
+	updateCurrentPage,
+	updateDisplayFilterOptions,
+	updateDisplayGraphOptions,
+	updateDisplaySearchBar,
 } from '../features/navBar/navBarSlice';
 
 const GraphView = () => {
@@ -24,25 +24,25 @@ const GraphView = () => {
 	const dispatch = useDispatch();
 
 	dispatch(updateCurrentPage(GRAPH_VIEW));
-  dispatch(updateDisplayFilterOptions(false));
-  dispatch(updateDisplayGraphOptions(true));
-  dispatch(updateDisplaySearchBar(true));
+	dispatch(updateDisplayFilterOptions(false));
+	dispatch(updateDisplayGraphOptions(true));
+	dispatch(updateDisplaySearchBar(true));
 
-  return (
-    <div >
-      <NavBar currentPage={GRAPH_VIEW} displayFilterOptions={false} displayGraphOptions={true} displaySearchBar={true} />
-			<div className={'page'}>
+	return (
+		<div >
+			<NavBar currentPage={GRAPH_VIEW} displayFilterOptions={false} displayGraphOptions={true} displaySearchBar={true} />
+			<div className={'graphViewPage'}>
 				<div className={'tableAndButton'}>
 					<div className={'graphViewTable'}>
 						<GraphViewTable />
 					</div>
 					<div>
-							<AddRowButton/>
+						<AddRowButton />
 					</div>
 				</div>
-				<div className={'graph'}>
-            <CandlestickChart />
-          </div>
+				<div className={'graphViewCandlestick'}>
+					<CandlestickChart width={'100%'} height={'100%'} currentPage={'GRAPH_VIEW'}/>
+				</div>
 			</div>
 		</div>
 	);

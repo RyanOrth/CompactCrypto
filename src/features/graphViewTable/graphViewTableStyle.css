@@ -1,13 +1,15 @@
 .graphTable {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
-  width: 22vmin;
-  height: 20vmin;
+  width: inherit;
+  height: inherit;
 }
 
 .graphTableCell {
   border: 1px;
   padding: 8px;
+  width: inherit;
+  height: inherit;
 }
 .graphTableHeader {
   border: 0px;

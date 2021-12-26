@@ -1,25 +1,16 @@
- .page {
-  background-color: #585858;
+ .graphViewPage {
   display: flex;
-  justify-content: 'right';
-  align-items: 'right';
-  height: 100%;
-  width: 100%;
   padding: 10px;
-  display: flex;
+  overflow: hidden;
 } 
 
-.graph {
-  float: 'right';
-  justify-self: right;
-  width: 100vmin;
-  height: 100vmin;
-  margin: 10px;
+.graphViewCandlestick {
+  height: 75vmin;
+  width: 75vmax;
 }
 
 .tableAndButton {
-  float: left;
-  margin: 10px;
+  padding: 10px;
 }
 
 .graphViewTable {
@@ -28,4 +19,5 @@
   border-width: 1px;
   border-color: white;
   margin-bottom: 10px;
+  width: 25vmin;
 }

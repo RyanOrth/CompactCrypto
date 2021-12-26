@@ -1,11 +1,19 @@
-.page {
+/* .page {
   background-color: #585858;
   display: 'flex';
   justify-content: 'center';
   align-items: 'baseline';
   height: '100vmin';
-  padding: '10px';
+  width: '100vmax';
+  padding: 10px;
+  /* padding: '10px'; */
   /* display: block; */
+/*} */
+
+.compactViewPage {
+  display: flex;
+  padding: 10px;
+  overflow: hidden;
 }
 
 #tbbl {
@@ -30,7 +38,8 @@
 .candleStickChart {
   height: 75vmin;
   width: 75vmax;
-  float: 'right';
+  /* padding: 10px; */
+  /* float: 'right'; */
   /* margin-right: '5%'; */
   /* margin-top: '5%'; */
   /* width: '55%'; */

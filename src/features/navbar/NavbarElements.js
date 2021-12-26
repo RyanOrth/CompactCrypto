@@ -44,6 +44,7 @@ export const NavMenu = styled.div`
   display: flex;
   align-items: center;
   margin-right: -24px;
+  padding: 10px;
   /* Second Nav */
   /* margin-right: 24px; */
   /* Third Nav */
